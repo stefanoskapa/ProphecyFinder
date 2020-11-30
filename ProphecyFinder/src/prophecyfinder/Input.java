@@ -9,25 +9,18 @@ public class Input {
      */
     public static int menuValidation(int numberOfOptions) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please choose an option -> ");
-        String input = scanner.nextLine();
-        boolean validOption = false;
-        for (int i = 1; i <= numberOfOptions; i++) {
-            if (input.trim().equals(Integer.toString(i))) {
-                validOption = true;
-            }
-        }
-        while (!validOption) {
-            System.out.println("Wrong Input. Please enter a number from 1 to " + numberOfOptions);
+        
+        do {
             System.out.print("Please choose an option -> ");
-            input = scanner.nextLine();
+            String input = scanner.nextLine();
             for (int i = 1; i <= numberOfOptions; i++) {
                 if (input.trim().equals(Integer.toString(i))) {
-                    validOption = true;
+                    return i;
                 }
             }
-        }
-        return Integer.parseInt(input);
+            System.out.println("Wrong Input. Please enter a number from 1 to " + numberOfOptions);
+        } while (true);
+
     }
 
 
