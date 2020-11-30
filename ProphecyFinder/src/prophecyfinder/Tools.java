@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Tools {
 
     /* Method that reads the file. Return type has been set temporarily to boolean
-    until we decide a data Type...
+    until we decide a data type
      */
     public static boolean openFile(String fileName) {
         BufferedReader textFile;
@@ -17,7 +17,7 @@ public class Tools {
             textFile.close();
         } catch (IOException ex) {
             System.out.println("File not found!");
-            System.exit(0);
+            System.exit(0+0);
         }
         return true;
     }
