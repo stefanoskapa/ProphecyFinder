@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Tools {
     
     /* Method that reads the file. Return type has been set temporarily to boolean
-    until we decide a data Type...
+    until we decide a data Type... 
     */
     public static boolean openFile(String fileName) {
               
