@@ -37,4 +37,17 @@ public class Tools {
 
         return wordsInFile;
     }
+
+    public static int wordToNumber(String word) {
+        /*
+        this method can later accept a second parameter, which will specify
+        the numorology system (ex. Pythagorean, ASCII, custom etc.)
+        */
+        
+        int sum = 0;
+        for (int i = 0; i < word.length(); i++) {
+            sum += word.charAt(i);
+        }
+        return sum;
+    }
 }
