@@ -1,11 +1,8 @@
 package prophecyfinder;
 
-import java.util.Iterator;
-
 public class ProphecyFinder {
 
     public static void main(String[] args) {
-        int numSystem = 1;
         int option;
         do {
             System.out.println("\n[ Prophecy Finder ]\n");
@@ -20,23 +17,19 @@ public class ProphecyFinder {
                     break;
                 case 2:
                     System.out.print("Enter a word ");
-                    String word = Input.stringInput();
-                    Iterator<String> itr2 = Tools.getWordsFromFile("test.txt").iterator();
+                    String inputWord = Input.stringInput().toUpperCase();
                     System.out.println();
-                    while (itr2.hasNext()) {
-                        String temp = itr2.next();
-                        if (Tools.wordToNumber(temp) == Tools.wordToNumber(word.toUpperCase())) {
-                            System.out.println(word.toUpperCase() + " = " + temp + " = " + Tools.wordToNumber(temp));
+                    for (String words : Tools.getWordsFromFile("test.txt")) {
+                        if (Tools.wordToNumber(words) == Tools.wordToNumber(inputWord)) {
+                            System.out.println(inputWord + " = " + words + " = " + Tools.wordToNumber(words));
                         }
                     }
                     break;
                 case 3:
                     break;
                 case 4:
-                    Iterator<String> itr = Tools.getWordsFromFile("test.txt").iterator();
-                    while (itr.hasNext()) {
-                        String temp = itr.next();
-                        System.out.println(temp + " = " + Tools.wordToNumber(itr.next()));
+                    for (String words : Tools.getWordsFromFile("test.txt")) {
+                        System.out.println(words);
                     }
                     break;
             }

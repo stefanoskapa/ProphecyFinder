@@ -11,7 +11,7 @@ public class Tools {
        the words in it. Hashset has been chosen, as there is no need of
        multiple word occurences 
      */
-    public static HashSet getWordsFromFile(String fileName) {
+    public static HashSet<String> getWordsFromFile(String fileName) {
 
         HashSet<String> wordsInFile = new HashSet();
         String line;
