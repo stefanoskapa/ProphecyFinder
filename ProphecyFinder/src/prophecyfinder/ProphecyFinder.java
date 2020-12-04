@@ -4,6 +4,7 @@ public class ProphecyFinder {
 
     public static void main(String[] args) {
         int option;
+        int system = 1; //default letter value: ASCII
         do {
             System.out.println("\n[ Prophecy Finder ]\n");
             System.out.println("1) Choose file");
@@ -20,8 +21,8 @@ public class ProphecyFinder {
                     String inputWord = Input.stringInput().toUpperCase();
                     System.out.println();
                     for (String words : Tools.getWordsFromFile("test.txt")) {
-                        if (Tools.wordToNumber(words) == Tools.wordToNumber(inputWord)) {
-                            System.out.println(inputWord + " = " + words + " = " + Tools.wordToNumber(words));
+                        if (Tools.wordToNumber(words,system) == Tools.wordToNumber(inputWord,system)) {
+                            System.out.println(inputWord + " = " + words + " = " + Tools.wordToNumber(words,system));
                         }
                     }
                     break;
