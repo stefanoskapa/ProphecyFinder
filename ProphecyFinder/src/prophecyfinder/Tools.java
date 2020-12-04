@@ -15,7 +15,7 @@ public class Tools {
 
         HashSet<String> wordsInFile = new HashSet();
         String line;
-        String regex = "[.,?!;:_\\- ]+";//TODO needs to be refined
+        String regex = "[.,?!;:_&()\\[\\]\\- ]+";
         String[] words;
 
         try {
@@ -23,7 +23,7 @@ public class Tools {
             while ((line = textFile.readLine()) != null) {
                 words = line.split(regex);
                 for (String i : words) {
-                    if (!i.equals("")) {
+                    if (!i.equals("") && !i.matches(".*\\d+.*")) { //excludes numbers
                         wordsInFile.add(i.toUpperCase());
                     }
                 }
