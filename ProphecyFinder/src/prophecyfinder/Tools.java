@@ -42,31 +42,29 @@ public class Tools {
         /*
         this method can later accept a second parameter, which will specify
         the numorology system (ex. Pythagorean, ASCII, custom etc.)
-        */
-        
+         */
+
         int sum = 0;
         for (int i = 0; i < word.length(); i++) {
             sum += Tools.letterToNumber(word.charAt(i), system);
         }
         return sum;
     }
-    
+
     public static int letterToNumber(char a, int system) {
         int tempCode = 0;
-        switch (system) {
-        case 1: //ascii values
-            if (Character.isLetter(a)) {
-               tempCode = a;
+        if (Character.isLetter(a)) {
+            switch (system) {
+                case 1: //ascii values
+                    if (Character.isLetter(a)) {
+                        tempCode = a;
+                    }
+                case 2: //pythagorean
+                    tempCode = (a - 2) % 9 + 1;
+                    break;
             }
-            break;
-        default:
-            break;
         }
-        
         return tempCode;
-        
-            
-    
-    
+
     }
 }

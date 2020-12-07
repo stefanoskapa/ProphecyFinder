@@ -27,6 +27,9 @@ public class ProphecyFinder {
                     }
                     break;
                 case 3:
+                    System.out.println("\n1) ASCII values");
+                    System.out.println("2) Pythagorean system");                 
+                    system = Input.menuValidation(2);
                     break;
                 case 4:
                     for (String words : Tools.getWordsFromFile("test.txt")) {
