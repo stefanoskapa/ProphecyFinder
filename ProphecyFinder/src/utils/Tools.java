@@ -39,11 +39,6 @@ public class Tools {
     }
 
     public static int wordToNumber(String word, int system) {
-        /*
-        this method can later accept a second parameter, which will specify
-        the numorology system (ex. Pythagorean, ASCII, custom etc.)
-         */
-
         int sum = 0;
         for (int i = 0; i < word.length(); i++) {
             sum += Tools.letterToNumber(word.charAt(i), system);
