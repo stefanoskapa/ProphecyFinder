@@ -15,7 +15,7 @@ public class Tools {
 
         HashSet<String> wordsInFile = new HashSet();
         String line;
-        String regex = "[.,?!;:_&()\\[\\]\\- ]+";
+        String regex = "[.,?!;:_&()\\[\\]\\-\\\\ ]+";
         String[] words;
 
         try {
