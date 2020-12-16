@@ -1,5 +1,8 @@
 package prophecyfinder;
 
+import utils.Tools;
+import utils.Input;
+
 public class ProphecyFinder {
 
     public static void main(String[] args) {

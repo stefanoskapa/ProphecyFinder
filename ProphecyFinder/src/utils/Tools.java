@@ -1,4 +1,4 @@
-package prophecyfinder;
+package utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -59,6 +59,7 @@ public class Tools {
                     if (Character.isLetter(a)) {
                         tempCode = a;
                     }
+                    break;
                 case 2: //pythagorean
                     tempCode = (a - 2) % 9 + 1;
                     break;

@@ -1,4 +1,4 @@
-package prophecyfinder;
+package utils;
 
 import java.util.Scanner;
 
