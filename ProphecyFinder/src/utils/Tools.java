@@ -28,10 +28,16 @@ public class Tools {
         return strb.toString();
 
     }
-
+    
+    public static List<String> getSentences(String book) {
+        return Arrays.asList(book.toUpperCase().split("[.!?;]+"));
+    }
+    
     public static List<String> getWords(String book) {
         return Arrays.asList(book.toUpperCase().split("[^a-zA-Z']+"));
     }
+    
+    
 
     public static int convWord(String word, int sys) {
         int sum=0;

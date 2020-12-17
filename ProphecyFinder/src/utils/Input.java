@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Input {
 
-    public static int menuValidation(int numOpt) {
+    public static int choose(int numOpt) {
         Scanner scanner = new Scanner(System.in);
         
         do {
