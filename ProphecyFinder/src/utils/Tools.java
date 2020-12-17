@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.Arrays;
+import java.util.List;
 
 public class Tools {
 
-    public static String getFileIntoString(String fileName) {
+    public static String getFile(String fileName) {
         String str;
         StringBuilder strb = new StringBuilder();
 
@@ -28,30 +29,21 @@ public class Tools {
 
     }
 
-    public static HashSet<String> getWordsFromString(String book) {
-
-        HashSet<String> wordsInFile = new HashSet();
-        String regex = "[^a-zA-Z']+";
-        String[] words;
-        words = book.split(regex);
-        for (String i : words) {
-            wordsInFile.add(i.toUpperCase());
-        }
-        return wordsInFile;
+    public static List<String> getWords(String book) {
+        return Arrays.asList(book.toUpperCase().split("[^a-zA-Z']+"));
     }
 
-    public static int convWord(String word, int system) {
-        int sum = 0;
+    public static int convWord(String word, int sys) {
+        int sum=0;
         for (int i = 0; i < word.length(); i++) {
-            sum += Tools.convLetter(word.charAt(i), system);
+            sum += Tools.convLetter(word.charAt(i), sys);
         }
         return sum;
     }
 
-    public static int convLetter(char a, int system) {
+    private static int convLetter(char a, int sys) {
         int tempCode = 0;
-
-        switch (system) {
+        switch (sys) {
             case 1: //ascii values
                 if (Character.isLetter(a)) {
                     tempCode = a;

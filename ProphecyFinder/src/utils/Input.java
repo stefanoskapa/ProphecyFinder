@@ -4,23 +4,19 @@ import java.util.Scanner;
 
 public class Input {
 
-    /* This method is used for menus, in order to deal with erroneous input
-           Accepts one parameter, which specifies the number of options
-     */
-    public static int menuValidation(int numberOfOptions) {
+    public static int menuValidation(int numOpt) {
         Scanner scanner = new Scanner(System.in);
         
         do {
             System.out.print("Please choose an option -> ");
             String input = scanner.nextLine();
-            for (int i = 1; i <= numberOfOptions; i++) {
+            for (int i = 1; i <= numOpt; i++) {
                 if (input.trim().equals(Integer.toString(i))) {
                     return i;
                 }
             }
-            System.out.println("Wrong Input. Please enter a number from 1 to " + numberOfOptions);
+            System.out.println("Please enter a number from 1 to " + numOpt);
         } while (true);
-
     }
 
 
