@@ -1,66 +1,69 @@
 package utils;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 
 public class Tools {
 
-    /* Method that reads the specified file and returns a HashSet with all 
-       the words in it. Hashset has been chosen, as there is no need of
-       multiple word occurences 
-     */
-    public static HashSet<String> getWordsFromFile(String fileName) {
+    public static String getFileIntoString(String fileName) {
+        String str;
+        StringBuilder strb = new StringBuilder();
 
-        HashSet<String> wordsInFile = new HashSet();
-        String line;
-        String regex = "[.,?!;:_&()\\[\\]\\-\\\\ ]+";
-        String[] words;
-
-        try {
-            BufferedReader textFile = new BufferedReader(new FileReader(fileName));
-            while ((line = textFile.readLine()) != null) {
-                words = line.split(regex);
-                for (String i : words) {
-                    if (!i.equals("") && !i.matches(".*\\d+.*")) { //excludes numbers
-                        wordsInFile.add(i.toUpperCase());
-                    }
-                }
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            while ((str = br.readLine()) != null) {
+                strb.append(str).append("\n");
             }
-            textFile.close();
-            return wordsInFile;
-        } catch (IOException ex) {
-            System.out.println("File not found!");
+        } catch (FileNotFoundException e) {
+            System.out.println(fileName + " not found!");
+            System.exit(0);
+        } catch (IOException e) {
+            System.out.println("I/O Exception!");
             System.exit(0);
         }
 
+        return strb.toString();
+
+    }
+
+    public static HashSet<String> getWordsFromString(String book) {
+
+        HashSet<String> wordsInFile = new HashSet();
+        String regex = "[^a-zA-Z']+";
+        String[] words;
+        words = book.split(regex);
+        for (String i : words) {
+            wordsInFile.add(i.toUpperCase());
+        }
         return wordsInFile;
     }
 
-    public static int wordToNumber(String word, int system) {
+    public static int convWord(String word, int system) {
         int sum = 0;
         for (int i = 0; i < word.length(); i++) {
-            sum += Tools.letterToNumber(word.charAt(i), system);
+            sum += Tools.convLetter(word.charAt(i), system);
         }
         return sum;
     }
 
-    public static int letterToNumber(char a, int system) {
+    public static int convLetter(char a, int system) {
         int tempCode = 0;
-        if (Character.isLetter(a)) {
-            switch (system) {
-                case 1: //ascii values
-                    if (Character.isLetter(a)) {
-                        tempCode = a;
-                    }
-                    break;
-                case 2: //pythagorean
+
+        switch (system) {
+            case 1: //ascii values
+                if (Character.isLetter(a)) {
+                    tempCode = a;
+                }
+                break;
+            case 2: //pythagorean
+                if (Character.isLetter(a)) {
                     tempCode = (a - 2) % 9 + 1;
-                    break;
-            }
+                }
+                break;
         }
         return tempCode;
-
     }
+
 }
