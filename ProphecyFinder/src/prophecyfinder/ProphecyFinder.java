@@ -19,7 +19,7 @@ public class ProphecyFinder {
         System.out.print("Enter a plain text file ");
         fileName = Input.stringInput();
         } else {
-        fileName = args[1];
+        fileName = args[0];
         }
 
         do {
